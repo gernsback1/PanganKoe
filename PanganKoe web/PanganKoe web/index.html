@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PanganKoe - Meal Planner Sehat, Belanja Hemat & Konektor UMKM</title>
+  <meta name="description" content="Platform perencanaan menu makanan keluarga bergizi, hemat budget, dan penghubung UMKM kuliner lokal terdekat.">
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ================= 1. WEB SPLASH SCREEN OVERLAY ================= -->
+  <div id="web-splash" class="splash-overlay active">
+    <div class="splash-bg-glow glow-1"></div>
+    <div class="splash-bg-glow glow-2"></div>
+    
+    <div class="splash-container">
+      <div class="splash-brand-logo">
+        <div class="logo-pulse"></div>
+        <svg class="splash-logo-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M32 6C18.7452 6 8 16.7452 8 30C8 43.2548 18.7452 54 32 54C45.2548 54 56 43.2548 56 30C56 16.7452 45.2548 6 32 6Z" fill="url(#splash-leaf-grad)"/>
+          <path d="M32 14C32 14 20 24 20 34C20 40.6274 25.3726 46 32 46C38.6274 46 44 40.6274 44 34C44 24 32 14 32 14Z" fill="white" fill-opacity="0.9"/>
+          <path d="M32 20C32 20 25 27 25 33C25 36.866 28.134 40 32 40C35.866 40 39 36.866 39 33C39 27 32 20 32 20Z" fill="#10B981"/>
+          <defs>
+            <linearGradient id="splash-leaf-grad" x1="8" y1="6" x2="56" y2="54" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#059669"/>
+              <stop offset="1" stop-color="#34D399"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <h1 class="splash-title">Pangan<span class="highlight">Koe</span></h1>
+      <p class="splash-subtitle">Platform Perencanaan Pangan Sehat & Digitalisasi UMKM Kuliner</p>
+      
+      <div class="splash-loader-box">
+        <div class="splash-progress-track">
+          <div class="splash-progress-bar" id="splash-progress-bar"></div>
+        </div>
+        <span class="splash-status-text" id="splash-status-text">Menyiapkan dapur sehat keluarga...</span>
+      </div>
+
+      <button id="btn-skip-splash" class="splash-skip-btn">
+        Masuk Ke Website <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+
+
+  <!-- ================= 2. LANDING PAGE WRAPPER ================= -->
+  <div id="landing-page-view" class="web-wrapper active">
+
+    <!-- NAVBAR HEADER -->
+    <header class="web-header">
+      <div class="container header-container">
+        <a href="#" class="web-logo">
+          <div class="logo-icon-small">
+            <i class="fa-solid fa-leaf"></i>
+          </div>
+          <span class="logo-text">Pangan<span>Koe</span></span>
+        </a>
+
+        <nav class="web-nav">
+          <a href="#hero" class="nav-link active">Beranda</a>
+          <a href="#onboarding-section" class="nav-link">Fitur Unggulan</a>
+          <a href="#features-overview" class="nav-link">Layanan Pangan</a>
+        </nav>
+
+        <div class="header-actions">
+          <button class="btn-btn-outline" onclick="openAuthModal('signin')">
+            <i class="fa-solid fa-right-to-bracket"></i> Masuk
+          </button>
+          <button class="btn-btn-primary" onclick="openAuthModal('signup')">
+            <i class="fa-solid fa-user-plus"></i> Daftar Akun
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-section">
+      <div class="hero-bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+      </div>
+
+      <div class="container hero-grid">
+        <div class="hero-text-content">
+          <div class="hero-badge">
+            <i class="fa-solid fa-sparkles"></i> Solusi Sehat & Belanja Hemat Dapur Anda
+          </div>
+          <h1 class="hero-heading">
+            Perencanaan Makan Cerdas, <br>
+            <span class="gradient-text">Gizi Terjamin & Hemat Budget</span>
+          </h1>
+          <p class="hero-paragraph">
+            PanganKoe menyusun menu harian keluarga bergizi tinggi kurang dari 30 detik, menghitung belanja otomatis tanpa sisa bahan, dan menghubungkan Anda ke warung kuliner lokal terdekat.
+          </p>
+          <div class="hero-cta-group">
+            <button class="btn-btn-primary btn-hero" onclick="openAuthModal('signup')">
+              Coba PanganKoe Gratis <i class="fa-solid fa-arrow-right"></i>
+            </button>
+            <button class="btn-btn-secondary btn-hero" onclick="scrollToSection('onboarding-section')">
+              Pelajari Cara Kerja <i class="fa-solid fa-circle-play"></i>
+            </button>
+          </div>
+
+          <div class="hero-metrics-grid">
+            <div class="metric-item">
+              <span class="metric-number"><30 Dt</span>
+              <span class="metric-label">Meal Plan Siap</span>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="metric-item">
+              <span class="metric-number">6.4 Jt+</span>
+              <span class="metric-label">Potensi UMKM Lokal</span>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="metric-item">
+              <span class="metric-number">100%</span>
+              <span class="metric-label">Gizi Seimbang (AKG)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual-card">
+          <div class="glass-card-preview">
+            <div class="preview-header">
+              <div class="window-dots">
+                <span class="dot-red"></span>
+                <span class="dot-yellow"></span>
+                <span class="dot-green"></span>
+              </div>
+              <span class="preview-title">Dashboard Meal Planner PanganKoe</span>
+            </div>
+            <div class="preview-body">
+              <div class="preview-stat-row">
+                <div class="stat-pill"><i class="fa-solid fa-fire-flame-curved"></i> 2.150 kcal/hari</div>
+                <div class="stat-pill accent"><i class="fa-solid fa-wallet"></i> Rp 45.000/hari</div>
+              </div>
+              <div class="preview-menu-card">
+                <div class="menu-item-icon"><i class="fa-solid fa-bowl-food"></i></div>
+                <div class="menu-item-info">
+                  <h4>Sup Ayam Bayam & Tempe Bacem</h4>
+                  <p>Kaya Protein, Zat Besi & Serat Tinggi (AKG 100%)</p>
+                </div>
+                <span class="menu-badge">Menu Hari Ini</span>
+              </div>
+              <div class="preview-vendor-connected">
+                <i class="fa-solid fa-store"></i> Terhubung ke <strong>Warung Bu Titin (250m)</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ONBOARDING WEB SECTION -->
+    <section id="onboarding-section" class="onboarding-web-section">
+      <div class="container">
+        <div class="section-title-center">
+          <span class="section-tag">CARA KERJA PANGANKOE</span>
+          <h2>3 Langkah Mudah Dapur Sehat & Hemat</h2>
+          <p>Bagaimana PanganKoe mentransformasi cara keluarga Indonesia mengelola konsumsi harian.</p>
+        </div>
+
+        <div class="onboarding-web-grid">
+          <div class="onboarding-tabs-nav">
+            <div class="tab-item active" onclick="selectWebTab(0)">
+              <div class="tab-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+              <div class="tab-text">
+                <h3>1. Smart Meal Planner</h3>
+                <p>Rencana menu bergizi otomatis disesuaikan dengan kebutuhan harian.</p>
+              </div>
+            </div>
+            <div class="tab-item" onclick="selectWebTab(1)">
+              <div class="tab-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+              <div class="tab-text">
+                <h3>2. Kalkulator Belanja Efisien</h3>
+                <p>Belanja presisi sesuai budget tanpa bahan makanan terbuang.</p>
+              </div>
+            </div>
+            <div class="tab-item" onclick="selectWebTab(2)">
+              <div class="tab-icon"><i class="fa-solid fa-shop"></i></div>
+              <div class="tab-text">
+                <h3>3. Konektor UMKM Lokal</h3>
+                <p>Order langsung ke warung & penjual bahan makanan sekitar.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="onboarding-display-panel">
+            <div class="panel-content active" id="panel-0">
+              <div class="panel-badge"><i class="fa-solid fa-heart-pulse"></i> Fitur Gizi Seimbang</div>
+              <h3>Pilihan Menu Harian <30 Detik Sesuai Anggaran</h3>
+              <p>Sistem cerdas PanganKoe merekomendasikan variasi menu makan mingguan yang lezat, mudah dimasak, dan menjamin kecukupan nutrisi keluarga dan anak-anak.</p>
+              <ul class="feature-bullets">
+                <li><i class="fa-solid fa-circle-check"></i> Menu disesuaikan dengan budget harian keluarga</li>
+                <li><i class="fa-solid fa-circle-check"></i> Penghitungan kalori & gizi mikro (Zat Besi, Protein, Vitamin)</li>
+                <li><i class="fa-solid fa-circle-check"></i> Personalisasi untuk balita, anak kos, & keluarga</li>
+              </ul>
+              <button class="btn-btn-primary" onclick="openAuthModal('signup')">
+                Mulai Susun Menu <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+            <div class="panel-content" id="panel-1">
+              <div class="panel-badge"><i class="fa-solid fa-coins"></i> Bebas Pemborosan</div>
+              <h3>Otomatisasi Daftar Belanja & Anggaran Dapur</h3>
+              <p>Hindari membeli bahan makanan berlebih yang berakhir kadaluarsa. PanganKoe mengkalkulasi kebutuhan persis porsi masakan Anda dan merangkumnya menjadi daftar belanja pintar.</p>
+              <ul class="feature-bullets">
+                <li><i class="fa-solid fa-circle-check"></i> Pengelompokan bahan otomatis (Protein, Sayur, Bumbu)</li>
+                <li><i class="fa-solid fa-circle-check"></i> Estimasi total biaya belanja sebelum ke pasar</li>
+                <li><i class="fa-solid fa-circle-check"></i> Mengurangi pemborosan bahan makanan hingga 40%</li>
+              </ul>
+              <button class="btn-btn-primary" onclick="openAuthModal('signup')">
+                Hitung Anggaran Belanja <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+            <div class="panel-content" id="panel-2">
+              <div class="panel-badge"><i class="fa-solid fa-store"></i> Ekonomi Lokal</div>
+              <h3>Pesan Bahan & Masakan ke Warung Kuliner Terdekat</h3>
+              <p>Dukung pemberdayaan ekonomi warung kecil dan pedagang sayur sekitar. Terhubung langsung melalui transaksi WhatsApp yang praktis dan ramah pengguna.</p>
+              <ul class="feature-bullets">
+                <li><i class="fa-solid fa-circle-check"></i> Terhubung langsung via WhatsApp tanpa aplikasi rumit</li>
+                <li><i class="fa-solid fa-circle-check"></i> Bebas biaya pendaftaran untuk pedagang lokal</li>
+                <li><i class="fa-solid fa-circle-check"></i> Hemat ongkos kirim karena penjual berasal dari RT/RW Anda</li>
+              </ul>
+              <button class="btn-btn-primary" onclick="openAuthModal('signup')">
+                Daftar Sebagai Pengguna / Mitra <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="web-footer">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <div class="web-logo">
+            <div class="logo-icon-small"><i class="fa-solid fa-leaf"></i></div>
+            <span class="logo-text">Pangan<span>Koe</span></span>
+          </div>
+          <p>PanganKoe — Platform Perencanaan Gizi Sehat Keluarga, Belanja Hemat & Konektor UMKM Lokal.</p>
+        </div>
+        <div class="footer-links" id="features-overview">
+          <h4>Layanan PanganKoe</h4>
+          <p>© 2026 PanganKoe Indonesia. Seluruh Hak Cipta Dilindungi.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+
+  <!-- ================= 3. AUTH MODAL (SIGN IN & SIGN UP) ================= -->
+  <div id="auth-modal" class="web-modal-backdrop hidden">
+    <div class="web-modal-container">
+      <button class="btn-close-web-modal" onclick="closeAuthModal()">&times;</button>
+
+      <div class="modal-left-showcase">
+        <div class="showcase-content">
+          <div class="showcase-badge"><i class="fa-solid fa-shield-halved"></i> Aman & Terpercaya</div>
+          <h2>Bergabung Bersama Komunitas PanganKoe</h2>
+          <p>Satu akun untuk perencanaan menu sehat, efisiensi anggaran belanja, dan akses mudah ke UMKM lokal.</p>
+          <div class="showcase-testimonial">
+            <i class="fa-solid fa-quote-left quote-icon"></i>
+            <p>"PanganKoe sangat membantu merencanakan menu bergizi keluarga saya sekaligus belanja hemat ke pedagang sayur langganan."</p>
+            <div class="user-profile">
+              <i class="fa-solid fa-circle-user"></i>
+              <div>
+                <strong>Ibu Ratna S.</strong>
+                <span>Pengguna PanganKoe</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-right-form">
+        <div class="auth-tabs-header">
+          <button id="modal-tab-signin" class="modal-tab active" onclick="switchModalAuthTab('signin')">
+            <i class="fa-solid fa-right-to-bracket"></i> Masuk
+          </button>
+          <button id="modal-tab-signup" class="modal-tab" onclick="switchModalAuthTab('signup')">
+            <i class="fa-solid fa-user-plus"></i> Daftar Baru
+          </button>
+        </div>
+
+        <!-- SIGN IN FORM -->
+        <form id="web-form-signin" class="web-auth-form active" method="POST" action="login.php" onsubmit="handleWebSignIn(event)">
+          <div class="form-title-group">
+            <h3>Selamat Datang Kembali!</h3>
+            <p>Masukkan kredensial akun PanganKoe Anda.</p>
+          </div>
+          <div class="web-input-group">
+            <label for="signin-identity">Email atau Nomor WhatsApp <span class="required-star">*</span></label>
+            <div class="web-input-wrapper">
+              <i class="fa-solid fa-envelope"></i>
+              <input type="text" id="signin-identity" name="account_identity" placeholder="contoh@email.com / 08123456789" required autocomplete="username">
+            </div>
+          </div>
+          <div class="web-input-group">
+            <div class="label-flex">
+              <label for="signin-pass">Kata Sandi <span class="required-star">*</span></label>
+              <a href="#" class="forgot-pass-link" onclick="handleForgotPassword(event)">Lupa kata sandi?</a>
+            </div>
+            <div class="web-input-wrapper">
+              <i class="fa-solid fa-lock"></i>
+              <input type="password" id="signin-pass" name="password" placeholder="Masukkan kata sandi Anda" required autocomplete="current-password">
+              <button type="button" class="toggle-pass-btn" onclick="toggleWebPassword('signin-pass', this)" title="Lihat/Sembunyikan Kata Sandi">
+                <i class="fa-solid fa-eye"></i>
+              </button>
+            </div>
+          </div>
+          <div class="web-form-row">
+            <label class="custom-checkbox">
+              <input type="checkbox" name="remember_me" value="1" checked>
+              <span class="checkbox-box"></span>
+              <span class="checkbox-text">Ingat saya di perangkat ini</span>
+            </label>
+          </div>
+          <button type="submit" class="btn-btn-primary btn-block">
+            <span>Masuk ke Akun PanganKoe</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+          <div class="social-divider"><span>atau masuk dengan</span></div>
+          <div class="social-buttons-flex">
+            <button type="button" class="btn-social-web" onclick="handleSocialAuth('Google')">
+              <i class="fa-brands fa-google color-g"></i> Google
+            </button>
+            <button type="button" class="btn-social-web" onclick="handleSocialAuth('WhatsApp')">
+              <i class="fa-brands fa-whatsapp color-wa"></i> WhatsApp OTP
+            </button>
+          </div>
+        </form>
+
+        <!-- SIGN UP FORM -->
+        <form id="web-form-signup" class="web-auth-form" method="POST" action="register.php" onsubmit="handleWebSignUp(event)">
+          <div class="form-title-group">
+            <h3>Buat Akun PanganKoe Baru</h3>
+            <p>Lengkapi data di bawah ini untuk memulai.</p>
+          </div>
+          <div class="web-input-group">
+            <label for="signup-fullname">Nama Lengkap <span class="required-star">*</span></label>
+            <div class="web-input-wrapper">
+              <i class="fa-solid fa-user"></i>
+              <input type="text" id="signup-fullname" name="full_name" placeholder="Masukkan nama lengkap Anda" required autocomplete="name">
+            </div>
+          </div>
+          <div class="web-input-group">
+            <label for="signup-identity">Email / Nomor WhatsApp <span class="required-star">*</span></label>
+            <div class="web-input-wrapper">
+              <i class="fa-solid fa-envelope"></i>
+              <input type="text" id="signup-identity" name="email" placeholder="contoh@email.com / 08123456789" required autocomplete="email">
+            </div>
+          </div>
+          <div class="web-input-group">
+            <label for="signup-role">Peran / Kategori Pengguna <span class="required-star">*</span></label>
+            <div class="web-input-wrapper">
+              <i class="fa-solid fa-users"></i>
+              <select id="signup-role" name="user_role" required>
+                <option value="" disabled selected>Pilih Kategori Anda</option>
+                <option value="IRT">Ibu Rumah Tangga / Pengelola Dapur</option>
+                <option value="AnakKos">Anak Kos / Individu Mandiri</option>
+                <option value="UMKM">Mitra Warung / Toko / Katering UMKM</option>
+                <option value="Lainnya">Lainnya (Pencari Gizi Sehat)</option>
+              </select>
+            </div>
+          </div>
+          <div class="web-input-group">
+            <label for="signup-pass">Kata Sandi <span class="required-star">*</span></label>
+            <div class="web-input-wrapper">
+              <i class="fa-solid fa-lock"></i>
+              <input type="password" id="signup-pass" name="password" placeholder="Minimal 8 karakter" required minlength="8" autocomplete="new-password">
+              <button type="button" class="toggle-pass-btn" onclick="toggleWebPassword('signup-pass', this)" title="Lihat/Sembunyikan Kata Sandi">
+                <i class="fa-solid fa-eye"></i>
+              </button>
+            </div>
+            <div class="strength-meter-container">
+              <div class="meter-bar-fill" id="meter-bar-fill"></div>
+              <span class="meter-text" id="meter-text">Kekuatan kata sandi</span>
+            </div>
+          </div>
+          <div class="web-form-row">
+            <label class="custom-checkbox">
+              <input type="checkbox" name="terms_agree" required value="1">
+              <span class="checkbox-box"></span>
+              <span class="checkbox-text">Saya menyetujui Syarat, Ketentuan & Kebijakan Privasi (UU PDP 2022).</span>
+            </label>
+          </div>
+          <button type="submit" class="btn-btn-primary btn-block">
+            <span>Daftar Akun Sekarang</span>
+            <i class="fa-solid fa-user-check"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ================= 4. POST-SIGN-UP / ONBOARDING SETUP WIZARD (5 COMPREHENSIVE STEPS) ================= -->
+  <div id="preference-setup-modal" class="web-modal-backdrop hidden">
+    <div class="web-modal-container pref-modal-box">
+      <button class="btn-close-web-modal" onclick="closePreferenceSetupModal()" title="Tutup">&times;</button>
+      
+      <div class="pref-wizard-header">
+        <div class="pref-icon-badge"><i class="fa-solid fa-sliders"></i></div>
+        <h2>Personalisasi Profil & Preferensi PanganKoe</h2>
+        <p>Lengkapi data berikut untuk menyusun rekomendasi gizi presisi, rencana belanja hemat, dan profil akun dapur Anda.</p>
+        
+        <div class="wizard-steps-indicator">
+          <div class="wiz-step active" id="wiz-step-1" onclick="jumpToPrefStep(1)">
+            <i class="fa-solid fa-users"></i>
+            <span>1. Anggota Keluarga</span>
+          </div>
+          <div class="wiz-step" id="wiz-step-2" onclick="jumpToPrefStep(2)">
+            <i class="fa-solid fa-utensils"></i>
+            <span>2. Preferensi Makanan</span>
+          </div>
+          <div class="wiz-step" id="wiz-step-3" onclick="jumpToPrefStep(3)">
+            <i class="fa-solid fa-wallet"></i>
+            <span>3. Budget Dapur</span>
+          </div>
+          <div class="wiz-step" id="wiz-step-4" onclick="jumpToPrefStep(4)">
+            <i class="fa-solid fa-heart-pulse"></i>
+            <span>4. Kebutuhan Gizi</span>
+          </div>
+          <div class="wiz-step" id="wiz-step-5" onclick="jumpToPrefStep(5)">
+            <i class="fa-solid fa-circle-user"></i>
+            <span>5. Profil Dapur</span>
+          </div>
+        </div>
+      </div>
+
+      <form id="form-preference-setup" class="pref-wizard-body" onsubmit="savePreferenceSetup(event)">
+        
+        <!-- STEP 1: Anggota Keluarga (Sendiri atau Multi-Anggota) -->
+        <div class="pref-step-content active" id="pref-step-card-1">
+          <h3><i class="fa-solid fa-people-roof"></i> 1. Tentukan Anggota Keluarga</h3>
+          <p class="step-desc">Pilih apakah Anda mengelola konsumsi makanan sendiri (personal) atau bersama anggota keluarga.</p>
+          
+          <div class="family-mode-selector">
+            <label class="family-mode-card" id="mode-card-single">
+              <input type="radio" name="family_mode" value="single" onchange="handleFamilyModeChange('single')">
+              <div class="family-mode-icon"><i class="fa-solid fa-user"></i></div>
+              <div class="family-mode-text">
+                <strong>Sendiri / Personal</strong>
+                <span>Anak kos, mahasiswa, pekerja mandiri (1 Porsi)</span>
+              </div>
+            </label>
+            <label class="family-mode-card selected" id="mode-card-family">
+              <input type="radio" name="family_mode" value="family" checked onchange="handleFamilyModeChange('family')">
+              <div class="family-mode-icon"><i class="fa-solid fa-house-chimney-user"></i></div>
+              <div class="family-mode-text">
+                <strong>Keluarga (Multi-Anggota)</strong>
+                <span>Kelola porsi & kebutuhan gizi seluruh keluarga</span>
+              </div>
+            </label>
+          </div>
+
+          <!-- Dynamic Family Builder -->
+          <div class="family-builder-container" id="family-builder-area">
+            <div class="family-builder-header">
+              <h4><i class="fa-solid fa-list-check"></i> Daftar Anggota Keluarga Terdaftar:</h4>
+              <button type="button" class="btn-add-member" onclick="addNewFamilyMemberRow()">
+                <i class="fa-solid fa-user-plus"></i> Tambah Anggota
+              </button>
+            </div>
+
+            <div class="family-members-grid" id="family-members-list">
+              <!-- Default Member 1: Ibu -->
+              <div class="member-item-row" id="member-row-1">
+                <div class="member-avatar-mini"><i class="fa-solid fa-person-dress"></i></div>
+                <input type="text" class="member-input" placeholder="Nama / Panggilan" value="Ibu Ratna" required>
+                <select class="member-select">
+                  <option value="Ibu" selected>Ibu / Istri</option>
+                  <option value="Ayah">Ayah / Suami</option>
+                  <option value="Balita">Balita (<5 thn)</option>
+                  <option value="Anak">Anak / Remaja</option>
+                  <option value="Lansia">Lansia</option>
+                </select>
+                <input type="text" class="member-input" placeholder="Catatan Khusus (misal: Ibu Menyusui)" value="Ibu Menyusui (Nutrisi Lengkap)">
+                <button type="button" class="btn-del-member" onclick="removeFamilyMemberRow('member-row-1')" title="Hapus Anggota">
+                  <i class="fa-solid fa-trash-can"></i>
+                </button>
+              </div>
+
+              <!-- Default Member 2: Ayah -->
+              <div class="member-item-row" id="member-row-2">
+                <div class="member-avatar-mini"><i class="fa-solid fa-person"></i></div>
+                <input type="text" class="member-input" placeholder="Nama / Panggilan" value="Pak Hendra" required>
+                <select class="member-select">
+                  <option value="Ibu">Ibu / Istri</option>
+                  <option value="Ayah" selected>Ayah / Suami</option>
+                  <option value="Balita">Balita (<5 thn)</option>
+                  <option value="Anak">Anak / Remaja</option>
+                  <option value="Lansia">Lansia</option>
+                </select>
+                <input type="text" class="member-input" placeholder="Catatan Khusus" value="Pekerja Aktif">
+                <button type="button" class="btn-del-member" onclick="removeFamilyMemberRow('member-row-2')" title="Hapus Anggota">
+                  <i class="fa-solid fa-trash-can"></i>
+                </button>
+              </div>
+
+              <!-- Default Member 3: Balita -->
+              <div class="member-item-row" id="member-row-3">
+                <div class="member-avatar-mini"><i class="fa-solid fa-baby"></i></div>
+                <input type="text" class="member-input" placeholder="Nama / Panggilan" value="Dedek Alif" required>
+                <select class="member-select">
+                  <option value="Ibu">Ibu / Istri</option>
+                  <option value="Ayah">Ayah / Suami</option>
+                  <option value="Balita" selected>Balita (<5 thn)</option>
+                  <option value="Anak">Anak / Remaja</option>
+                  <option value="Lansia">Lansia</option>
+                </select>
+                <input type="text" class="member-input" placeholder="Catatan Khusus" value="Pencegahan Stunting & MPASI">
+                <button type="button" class="btn-del-member" onclick="removeFamilyMemberRow('member-row-3')" title="Hapus Anggota">
+                  <i class="fa-solid fa-trash-can"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="special-needs-box">
+              <h4>Kebutuhan Gizi Prioritas Dapur:</h4>
+              <div class="checkbox-group-flex">
+                <label class="custom-checkbox">
+                  <input type="checkbox" name="has_toddler" id="pref-has-toddler" checked>
+                  <span class="checkbox-box"></span>
+                  <span class="checkbox-text">Fokus Pencegahan Stunting & MPASI (Balita)</span>
+                </label>
+                <label class="custom-checkbox">
+                  <input type="checkbox" name="has_pregnant" id="pref-has-pregnant">
+                  <span class="checkbox-box"></span>
+                  <span class="checkbox-text">Ibu Hamil / Menyusui (Kaya Zat Besi & Folat)</span>
+                </label>
+                <label class="custom-checkbox">
+                  <input type="checkbox" name="has_elderly" id="pref-has-elderly">
+                  <span class="checkbox-box"></span>
+                  <span class="checkbox-text">Ada Lansia (Rendah Natrium & Gula)</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="wizard-nav-buttons">
+            <span></span>
+            <button type="button" class="btn-btn-primary" onclick="nextPrefStep(2)">
+              Lanjut ke Preferensi Makanan <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 2: Preferensi Makanan & Alergen -->
+        <div class="pref-step-content" id="pref-step-card-2">
+          <h3><i class="fa-solid fa-utensils"></i> 2. Preferensi Makanan & Alergi</h3>
+          <p class="step-desc">Pilih cita rasa hidangan favorit keluarga serta pantangan/alergi makanan yang perlu dihindari.</p>
+          
+          <div class="pref-section-block">
+            <div class="pref-section-title"><i class="fa-solid fa-heart"></i> Cita Rasa & Kategori Masakan Favorit:</div>
+            <div class="pref-chips-flex">
+              <label class="chip-toggle-card">
+                <input type="checkbox" name="cuisine_pref" value="nusantara" checked>
+                <span class="chip-box"><i class="fa-solid fa-bowl-rice"></i> Masakan Nusantara</span>
+              </label>
+              <label class="chip-toggle-card">
+                <input type="checkbox" name="cuisine_pref" value="rumahan" checked>
+                <span class="chip-box"><i class="fa-solid fa-kitchen-set"></i> Masakan Rumahan Hemat</span>
+              </label>
+              <label class="chip-toggle-card">
+                <input type="checkbox" name="cuisine_pref" value="high_protein" checked>
+                <span class="chip-box"><i class="fa-solid fa-drumstick-bite"></i> Tinggi Protein (Ayam/Ikan/Telur/Tempe)</span>
+              </label>
+              <label class="chip-toggle-card">
+                <input type="checkbox" name="cuisine_pref" value="sayuran" checked>
+                <span class="chip-box"><i class="fa-solid fa-carrot"></i> Sayuran Segar & Sup Bening</span>
+              </label>
+              <label class="chip-toggle-card">
+                <input type="checkbox" name="cuisine_pref" value="low_carb">
+                <span class="chip-box"><i class="fa-solid fa-leaf"></i> Rendah Karbohidrat & Gula</span>
+              </label>
+              <label class="chip-toggle-card">
+                <input type="checkbox" name="cuisine_pref" value="western">
+                <span class="chip-box"><i class="fa-solid fa-pizza-slice"></i> Masakan Western / Modern Sehat</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="pref-section-block">
+            <div class="pref-section-title"><i class="fa-solid fa-shield-virus"></i> Pantangan & Alergi Makanan:</div>
+            <div class="pref-chips-flex">
+              <label class="chip-toggle-card">
+                <input type="checkbox" name="allergy_pref" value="seafood">
+                <span class="chip-box"><i class="fa-solid fa-shrimp"></i> Alergi Seafood & Udang</span>
+              </label>
+              <label class="chip-toggle-card">
+                <input type="checkbox" name="allergy_pref" value="nuts">
+                <span class="chip-box"><i class="fa-solid fa-jar"></i> Alergi Kacang & Kedelai</span>
+              </label>
+              <label class="chip-toggle-card">
+                <input type="checkbox" name="allergy_pref" value="dairy">
+                <span class="chip-box"><i class="fa-solid fa-cow"></i> Alergi Susu Sapi / Lactose</span>
+              </label>
+              <label class="chip-toggle-card">
+                <input type="checkbox" name="allergy_pref" value="eggs">
+                <span class="chip-box"><i class="fa-solid fa-egg"></i> Alergi Telur</span>
+              </label>
+              <label class="chip-toggle-card">
+                <input type="checkbox" name="allergy_pref" value="gluten">
+                <span class="chip-box"><i class="fa-solid fa-wheat-awn-circle-exclamation"></i> Bebas Gluten (Gluten-Free)</span>
+              </label>
+              <label class="chip-toggle-card">
+                <input type="checkbox" name="allergy_pref" value="halal" checked>
+                <span class="chip-box"><i class="fa-solid fa-certificate"></i> 100% Halal</span>
+              </label>
+              <label class="chip-toggle-card">
+                <input type="checkbox" name="allergy_pref" value="kids" checked>
+                <span class="chip-box"><i class="fa-solid fa-child"></i> Ramah Anak (Tidak Pedas / Tanpa Cabe)</span>
+              </label>
+              <label class="chip-toggle-card">
+                <input type="checkbox" name="allergy_pref" value="vegetarian">
+                <span class="chip-box"><i class="fa-solid fa-seedling"></i> Vegetarian / Tanpa Daging</span>
+              </label>
+              <label class="chip-toggle-card">
+                <input type="checkbox" name="allergy_pref" value="none">
+                <span class="chip-box"><i class="fa-solid fa-circle-check"></i> Bebas Pantangan</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="wizard-nav-buttons">
+            <button type="button" class="btn-btn-secondary" onclick="nextPrefStep(1)">
+              <i class="fa-solid fa-arrow-left"></i> Kembali
+            </button>
+            <button type="button" class="btn-btn-primary" onclick="nextPrefStep(3)">
+              Lanjut ke Target Budget <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 3: Target Anggaran / Budget Dapur (Rp 300.000 - Rp 2.000.000) -->
+        <div class="pref-step-content" id="pref-step-card-3">
+          <h3><i class="fa-solid fa-wallet"></i> 3. Tentukan Plafon Anggaran Belanja</h3>
+          <p class="step-desc">Ketik nominal target budget mingguan Anda. Sistem cerdas akan mengoptimalkan belanja tanpa ada bahan terbuang.</p>
+          
+          <div class="budget-input-container">
+            <div class="budget-input-header">
+              <label for="pref-budget-input"><i class="fa-solid fa-money-bill-wave"></i> Plafon Anggaran Mingguan (Input Ketik):</label>
+              <span class="budget-limit-tag">Batas: Rp 300.000 - Rp 2.000.000</span>
+            </div>
+
+            <div class="currency-input-wrapper">
+              <span class="currency-prefix">Rp</span>
+              <input type="text" id="pref-budget-input" class="budget-number-input" value="500.000" placeholder="500.000" oninput="handleBudgetInputChange(this)">
+            </div>
+
+            <div id="budget-status-feedback" class="budget-status-msg valid">
+              <i class="fa-solid fa-circle-check"></i>
+              <span id="budget-feedback-text">Anggaran valid & seimbang untuk kebutuhan gizi keluarga.</span>
+            </div>
+
+            <div class="preset-buttons-label">Atau pilih preset cepat:</div>
+            <div class="budget-presets-grid-row">
+              <button type="button" class="btn-preset-chip" onclick="selectBudgetPreset(350000)">Rp 350.000</button>
+              <button type="button" class="btn-preset-chip active" onclick="selectBudgetPreset(500000)">Rp 500.000</button>
+              <button type="button" class="btn-preset-chip" onclick="selectBudgetPreset(750000)">Rp 750.000</button>
+              <button type="button" class="btn-preset-chip" onclick="selectBudgetPreset(1000000)">Rp 1.000.000</button>
+              <button type="button" class="btn-preset-chip" onclick="selectBudgetPreset(1500000)">Rp 1.500.000</button>
+              <button type="button" class="btn-preset-chip" onclick="selectBudgetPreset(2000000)">Rp 2.000.000</button>
+            </div>
+
+            <!-- Live Calculation Breakdown -->
+            <div class="budget-estimation-row">
+              <div class="estimation-card">
+                <div class="est-icon"><i class="fa-solid fa-calendar-day"></i></div>
+                <div class="est-text">
+                  <strong id="est-daily-budget">Rp 71.400 / hari</strong>
+                  <span>Estimasi alokasi belanja harian</span>
+                </div>
+              </div>
+              <div class="estimation-card">
+                <div class="est-icon"><i class="fa-solid fa-utensils"></i></div>
+                <div class="est-text">
+                  <strong id="est-meal-portion">~Rp 7.900 / porsi</strong>
+                  <span>Estimasi biaya per porsi makan</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="wizard-nav-buttons">
+            <button type="button" class="btn-btn-secondary" onclick="nextPrefStep(2)">
+              <i class="fa-solid fa-arrow-left"></i> Kembali
+            </button>
+            <button type="button" class="btn-btn-primary" onclick="nextPrefStep(4)">
+              Lanjut ke Kebutuhan Gizi Fisik <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 4: Kebutuhan Gizi & Data Fisik Tubuh -->
+        <div class="pref-step-content" id="pref-step-card-4">
+          <h3><i class="fa-solid fa-heart-pulse"></i> 4. Kebutuhan & Asupan Gizi Tubuh</h3>
+          <p class="step-desc">Masukkan data fisik dan tingkat keaktifan untuk mengkalkulasi kebutuhan kalori serta nutrisi mikro secara presisi.</p>
+          
+          <div class="biometrics-form-grid">
+            <div class="bio-input-group">
+              <label for="pref-height"><i class="fa-solid fa-ruler-vertical"></i> Tinggi Badan (cm)</label>
+              <input type="number" id="pref-height" value="160" min="50" max="250" oninput="calculateAKGTargets()">
+            </div>
+            <div class="bio-input-group">
+              <label for="pref-weight"><i class="fa-solid fa-weight-scale"></i> Berat Badan (kg)</label>
+              <input type="number" id="pref-weight" value="55" min="10" max="250" oninput="calculateAKGTargets()">
+            </div>
+            <div class="bio-input-group">
+              <label for="pref-age"><i class="fa-solid fa-cake-candles"></i> Umur (Tahun)</label>
+              <input type="number" id="pref-age" value="28" min="1" max="120" oninput="calculateAKGTargets()">
+            </div>
+            <div class="bio-input-group">
+              <label for="pref-gender"><i class="fa-solid fa-venus-mars"></i> Jenis Kelamin</label>
+              <select id="pref-gender" onchange="calculateAKGTargets()">
+                <option value="female" selected>Perempuan</option>
+                <option value="male">Laki-laki</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="pref-section-title"><i class="fa-solid fa-person-running"></i> Tingkat Keaktifan Fisik Harian:</div>
+          <div class="activity-options-grid">
+            <label class="activity-option-card">
+              <input type="radio" name="activity_level" value="sedentary" onchange="calculateAKGTargets()">
+              <strong>Santai / Ringan</strong>
+              <span>Pekerjaan meja / minim aktivitas fisik</span>
+            </label>
+            <label class="activity-option-card">
+              <input type="radio" name="activity_level" value="moderate" checked onchange="calculateAKGTargets()">
+              <strong>Cukup Aktif</strong>
+              <span>Aktivitas mengurus rumah / jalan 3-5x seminggu</span>
+            </label>
+            <label class="activity-option-card">
+              <input type="radio" name="activity_level" value="active" onchange="calculateAKGTargets()">
+              <strong>Sangat Aktif</strong>
+              <span>Olahraga rutin / pekerja fisik harian</span>
+            </label>
+          </div>
+
+          <!-- Live Calculated AKG Target Card -->
+          <div class="akg-output-banner">
+            <div class="akg-output-header">
+              <h4><i class="fa-solid fa-chart-line"></i> Rekomendasi Kecukupan Gizi Harian (AKG):</h4>
+              <span class="akg-calories-highlight" id="akg-calc-calories">2.150 kcal/hari</span>
+            </div>
+            <div class="akg-nutri-badges-grid">
+              <div class="akg-nutri-item">
+                <strong id="akg-calc-protein">68 g</strong>
+                <span>Protein Harian</span>
+              </div>
+              <div class="akg-nutri-item">
+                <strong id="akg-calc-iron">18 mg</strong>
+                <span>Zat Besi (Fe)</span>
+              </div>
+              <div class="akg-nutri-item">
+                <strong id="akg-calc-fiber">28 g</strong>
+                <span>Serat Sehat</span>
+              </div>
+              <div class="akg-nutri-item">
+                <strong id="akg-calc-omega">Tinggi</strong>
+                <span>Omega-3 (DHA/EPA)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="wizard-nav-buttons">
+            <button type="button" class="btn-btn-secondary" onclick="nextPrefStep(3)">
+              <i class="fa-solid fa-arrow-left"></i> Kembali
+            </button>
+            <button type="button" class="btn-btn-primary" onclick="nextPrefStep(5)">
+              Lanjut ke Profil Akun <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 5: Profil Akun (Upload Foto, Nama, Bio, Lokasi) -->
+        <div class="pref-step-content" id="pref-step-card-5">
+          <h3><i class="fa-solid fa-circle-user"></i> 5. Atur Profil & Deskripsi Dapur</h3>
+          <p class="step-desc">Sesuaikan foto profil, nama panggilan, deskripsi dapur, dan alamat pengantaran mitra warung Anda.</p>
+          
+          <div class="profile-setup-wrapper">
+            <!-- Left: Avatar Customizer -->
+            <div class="avatar-customizer-box">
+              <div class="avatar-preview-display" id="pref-avatar-preview">
+                <span id="pref-avatar-initial">R</span>
+              </div>
+              <label class="avatar-upload-label">
+                <i class="fa-solid fa-camera"></i> Unggah Foto Sendiri
+                <input type="file" id="pref-avatar-file" accept="image/*" onchange="handleAvatarFileUpload(event)">
+              </label>
+
+              <div class="avatar-presets-title">Atau pilih avatar katalog:</div>
+              <div class="avatar-presets-grid">
+                <button type="button" class="btn-avatar-choice active" onclick="selectPresetAvatar('👩', this)" title="Ibu Rumah Tangga">👩</button>
+                <button type="button" class="btn-avatar-choice" onclick="selectPresetAvatar('🧕', this)" title="Ibu Berhijab">🧕</button>
+                <button type="button" class="btn-avatar-choice" onclick="selectPresetAvatar('🧑‍🍳', this)" title="Chef Sehat">🧑‍🍳</button>
+                <button type="button" class="btn-avatar-choice" onclick="selectPresetAvatar('👨', this)" title="Pria Dewasa">👨</button>
+                <button type="button" class="btn-avatar-choice" onclick="selectPresetAvatar('🥗', this)" title="Pecinta Sayur">🥗</button>
+                <button type="button" class="btn-avatar-choice" onclick="selectPresetAvatar('🌟', this)" title="Dapur Sehat">🌟</button>
+              </div>
+            </div>
+
+            <!-- Right: Profile Fields -->
+            <div class="profile-fields-box">
+              <div class="web-input-group">
+                <label for="pref-user-name">Nama Lengkap / Panggilan Dapur <span class="required-star">*</span></label>
+                <div class="web-input-wrapper">
+                  <i class="fa-solid fa-user"></i>
+                  <input type="text" id="pref-user-name" name="profile_name" placeholder="Nama Anda" value="Ibu Ratna S." required>
+                </div>
+              </div>
+
+              <div class="web-input-group">
+                <label for="pref-user-bio">Deskripsi / Bio Dapur Singkat</label>
+                <textarea id="pref-user-bio" class="bio-textarea" placeholder="Ceritakan fokus dapur keluarga Anda (misal: 'Ibu 2 anak pecinta masakan bernutrisi hemat')...">Pengelola dapur keluarga bahagia, fokus gizi seimbang balita & belanja hemat ke warung lokal.</textarea>
+              </div>
+
+              <div class="web-input-group">
+                <label for="pref-user-location"><i class="fa-solid fa-location-dot"></i> Alamat Pengantaran & Radius Warung Mitra</label>
+                <div class="web-input-wrapper">
+                  <i class="fa-solid fa-house"></i>
+                  <input type="text" id="pref-user-location" name="profile_location" placeholder="Masukkan alamat RT/RW atau Kelurahan Anda" value="Kecamatan Kebon Jeruk, Jakarta Barat (Radius < 500m)">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="wizard-nav-buttons">
+            <button type="button" class="btn-btn-secondary" onclick="nextPrefStep(4)">
+              <i class="fa-solid fa-arrow-left"></i> Kembali
+            </button>
+            <button type="submit" class="btn-btn-primary btn-hero">
+              <i class="fa-solid fa-wand-magic-sparkles"></i> Simpan Profil & Masuk Dashboard
+            </button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+
+  <!-- ================= 5. HALAMAN BERANDA (USER DASHBOARD VIEW) ================= -->
+  <div id="dashboard-app-view" class="dashboard-wrapper">
+    
+    <!-- DASHBOARD SIDEBAR NAVIGATION -->
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-header">
+        <a href="#" class="web-logo">
+          <div class="logo-icon-small"><i class="fa-solid fa-leaf"></i></div>
+          <span class="logo-text">Pangan<span>Koe</span></span>
+        </a>
+      </div>
+
+      <nav class="sidebar-menu">
+        <a href="#dash-overview" class="side-link active" onclick="switchDashboardTab('dash-overview', this)">
+          <i class="fa-solid fa-chart-pie"></i> <span>Ikhtisar Beranda</span>
+        </a>
+        <a href="#dash-planner" class="side-link" onclick="switchDashboardTab('dash-planner', this)">
+          <i class="fa-solid fa-calendar-days"></i> <span>Meal Planner Gizi</span>
+        </a>
+        <a href="#dash-groceries" class="side-link" onclick="switchDashboardTab('dash-groceries', this)">
+          <i class="fa-solid fa-basket-shopping"></i> <span>Daftar Belanja</span>
+        </a>
+        <a href="#dash-umkm" class="side-link" onclick="switchDashboardTab('dash-umkm', this)">
+          <i class="fa-solid fa-store"></i> <span>Direktori UMKM</span>
+        </a>
+        <a href="#dash-pillars" class="side-link" onclick="switchDashboardTab('dash-pillars', this)">
+          <i class="fa-solid fa-shield-heart"></i> <span>Pilar Layanan</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-user-card">
+        <div class="user-avatar-circle" id="dash-user-avatar">R</div>
+        <div class="user-info-text">
+          <h4 id="dash-user-name-side">Ibu Ratna S.</h4>
+          <span id="dash-user-role-badge" class="badge-role">Ibu Rumah Tangga</span>
+        </div>
+        <button class="btn-logout-icon" title="Keluar Akun" onclick="handleLogout()">
+          <i class="fa-solid fa-right-from-bracket"></i>
+        </button>
+      </div>
+    </aside>
+
+
+    <!-- DASHBOARD MAIN CONTENT AREA -->
+    <main class="dashboard-main">
+      
+      <!-- TOP NAVBAR -->
+      <header class="dashboard-topbar">
+        <div class="topbar-search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Cari resep gizi, bahan makanan, atau warung UMKM...">
+        </div>
+
+        <div class="topbar-actions">
+          <button class="btn-btn-outline btn-sm" onclick="openPreferenceSetupModal()" title="Ubah Preferensi & Profil">
+            <i class="fa-solid fa-sliders"></i> Ubah Profil & Preferensi
+          </button>
+          
+          <button class="btn-action-circle" title="Notifikasi Gizi">
+            <i class="fa-solid fa-bell"></i>
+            <span class="notification-badge"></span>
+          </button>
+          
+          <div class="topbar-profile-pill">
+            <div class="user-avatar-circle" id="dash-topbar-avatar" style="width: 28px; height: 28px; font-size: 0.75rem;">R</div>
+            <span id="dash-topbar-name">Ibu Ratna S.</span>
+          </div>
+
+          <button class="btn-btn-outline btn-sm" onclick="handleLogout()">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i> Keluar
+          </button>
+        </div>
+      </header>
+
+
+      <!-- DASHBOARD TAB CONTENT SECTIONS -->
+      <div class="dashboard-content-body">
+        
+        <!-- SECTION 1: IKHTISAR BERANDA (OVERVIEW) -->
+        <section id="dash-overview" class="dash-tab-section active">
+          
+          <!-- Welcome Hero Banner -->
+          <div class="welcome-hero-banner">
+            <div class="banner-text">
+              <span class="greeting-tag"><i class="fa-solid fa-sun"></i> Dapur Sehat Terencana PanganKoe</span>
+              <h2 id="dash-welcome-heading">Halo, Ibu Ratna S.! 👋</h2>
+              <p id="dash-welcome-subtitle">Pengelola dapur keluarga bahagia, fokus gizi seimbang balita & belanja hemat ke warung lokal.</p>
+              
+              <div class="banner-cta-flex">
+                <button class="btn-btn-primary" onclick="generateQuickMealPlan()">
+                  <i class="fa-solid fa-wand-magic-sparkles"></i> Susun Menu Baru <30 Dt
+                </button>
+                <button class="btn-btn-secondary" onclick="switchDashboardTab('dash-groceries')">
+                  <i class="fa-solid fa-list-check"></i> Lihat Daftar Belanja
+                </button>
+              </div>
+            </div>
+            
+            <div class="banner-stat-badge">
+              <div class="stat-circle">
+                <span class="circle-val">98%</span>
+                <span class="circle-lbl">Skor AKG</span>
+              </div>
+              <p id="dash-akg-note">Kebutuhan gizi balita & keluarga terpenuhi optimal.</p>
+            </div>
+          </div>
+
+          <!-- Business Metric Cards (4 Cards) -->
+          <div class="dash-metrics-grid">
+            <div class="metric-card">
+              <div class="m-icon green"><i class="fa-solid fa-fire-flame-curved"></i></div>
+              <div class="m-data">
+                <span class="m-label">Target Kalori AKG</span>
+                <h3 class="m-value" id="dash-calories-display">2.150 <small>kcal/hari</small></h3>
+                <span class="m-sub text-success" id="dash-nutri-sub"><i class="fa-solid fa-circle-check"></i> Sesuai Data Biometrik</span>
+              </div>
+            </div>
+
+            <div class="metric-card">
+              <div class="m-icon blue"><i class="fa-solid fa-wallet"></i></div>
+              <div class="m-data">
+                <span class="m-label">Plafon Budget Mingguan</span>
+                <h3 class="m-value" id="dash-budget-display">Rp 500.000 <small>/minggu</small></h3>
+                <span class="m-sub text-success" id="dash-daily-budget-sub"><i class="fa-solid fa-arrow-down"></i> ~Rp 71.400 / hari (Hemat 25%)</span>
+              </div>
+            </div>
+
+            <div class="metric-card">
+              <div class="m-icon orange"><i class="fa-solid fa-people-roof"></i></div>
+              <div class="m-data">
+                <span class="m-label">Porsi & Anggota Keluarga</span>
+                <h3 class="m-value" id="dash-family-display">3 Orang <small>(Keluarga)</small></h3>
+                <span class="m-sub text-primary" id="dash-family-sub"><i class="fa-solid fa-baby"></i> Termasuk Balita (Anti-Stunting)</span>
+              </div>
+            </div>
+
+            <div class="metric-card">
+              <div class="m-icon purple"><i class="fa-solid fa-shop"></i></div>
+              <div class="m-data">
+                <span class="m-label">Mitra UMKM Terhubung</span>
+                <h3 class="m-value">12 Warung <small>sekitar</small></h3>
+                <span class="m-sub text-primary" id="dash-location-display"><i class="fa-solid fa-location-dot"></i> Kebon Jeruk (< 500m)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Main Grid (Meal Plan Today + Grocery Quick List) -->
+          <div class="overview-main-grid">
+            
+            <!-- Left: Menu Makan Hari Ini -->
+            <div class="dash-card">
+              <div class="card-header-flex">
+                <h3><i class="fa-solid fa-utensils"></i> Menu Makan Bergizi Hari Ini</h3>
+                <span class="date-pill" id="today-date-text">Senin, Hari Ini</span>
+              </div>
+
+              <div class="meal-timeline" id="overview-meal-timeline">
+                <!-- Sarapan -->
+                <div class="meal-item-card">
+                  <div class="meal-time-tag">Sarapan (07:00)</div>
+                  <div class="meal-body">
+                    <div class="meal-img-placeholder"><i class="fa-solid fa-egg"></i></div>
+                    <div class="meal-details">
+                      <h4>Nasi Uduk Oat & Telur Balado</h4>
+                      <p>Protein 18g • Kalori 420 kcal • Karbohidrat Kompleks</p>
+                    </div>
+                    <span class="vendor-tag"><i class="fa-solid fa-store"></i> Toko Pak Slamet</span>
+                  </div>
+                </div>
+
+                <!-- Makan Siang -->
+                <div class="meal-item-card highlight">
+                  <div class="meal-time-tag primary">Makan Siang (12:30) - Menu Utama Gizi</div>
+                  <div class="meal-body">
+                    <div class="meal-img-placeholder primary"><i class="fa-solid fa-bowl-food"></i></div>
+                    <div class="meal-details">
+                      <h4>Sup Ayam Bayam & Tempe Bacem</h4>
+                      <p>Kaya Zat Besi & Protein (Pencegahan Stunting) • Kalori 610 kcal</p>
+                    </div>
+                    <span class="vendor-tag"><i class="fa-solid fa-store"></i> Warung Makan Bu Titin (250m)</span>
+                  </div>
+                </div>
+
+                <!-- Makan Malam -->
+                <div class="meal-item-card">
+                  <div class="meal-time-tag">Makan Malam (19:00)</div>
+                  <div class="meal-body">
+                    <div class="meal-img-placeholder"><i class="fa-solid fa-fish"></i></div>
+                    <div class="meal-details">
+                      <h4>Ikan Kembung Kukus Bumbu Kuning + Tumis Kangkung</h4>
+                      <p>Omega-3 Tinggi • Protein 24g • Kalori 480 kcal</p>
+                    </div>
+                    <span class="vendor-tag"><i class="fa-solid fa-store"></i> Pasar Basah RT 04</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Quick Grocery Checklist & Mitra Connector -->
+            <div class="dash-card">
+              <div class="card-header-flex">
+                <h3><i class="fa-solid fa-basket-shopping"></i> Daftar Belanja Otomatis</h3>
+                <span class="budget-badge" id="daily-budget-tag">Budget: Rp 71.400/hari</span>
+              </div>
+
+              <div class="quick-grocery-list" id="overview-grocery-list">
+                <label class="grocery-check-item">
+                  <input type="checkbox" checked onchange="toggleGroceryItem(this, 12000)">
+                  <span class="g-box"></span>
+                  <div class="g-text">
+                    <strong>Dada Ayam Segar (250g)</strong>
+                    <span>Warung Bu Titin • Rp 12.000</span>
+                  </div>
+                </label>
+
+                <label class="grocery-check-item">
+                  <input type="checkbox" checked onchange="toggleGroceryItem(this, 5000)">
+                  <span class="g-box"></span>
+                  <div class="g-text">
+                    <strong>Bayam Segar & Tempe 1 Papan</strong>
+                    <span>Toko Sayur Pak Slamet • Rp 5.000</span>
+                  </div>
+                </label>
+
+                <label class="grocery-check-item">
+                  <input type="checkbox" onchange="toggleGroceryItem(this, 15000)">
+                  <span class="g-box"></span>
+                  <div class="g-text">
+                    <strong>Ikan Kembung Segar (2 ekor)</strong>
+                    <span>Toko Protein Pasar RT 04 • Rp 15.000</span>
+                  </div>
+                </label>
+
+                <label class="grocery-check-item">
+                  <input type="checkbox" onchange="toggleGroceryItem(this, 8000)">
+                  <span class="g-box"></span>
+                  <div class="g-text">
+                    <strong>Bumbu Dapur (Bawang, Kunyit, Salam)</strong>
+                    <span>Warung Mbak Asih • Rp 8.000</span>
+                  </div>
+                </label>
+              </div>
+
+              <div class="grocery-summary-box">
+                <div class="summary-row">
+                  <span>Total Belanja Terpilih:</span>
+                  <strong id="grocery-total-price">Rp 17.000</strong>
+                </div>
+                <button class="btn-btn-primary btn-block" onclick="orderToVendorWA()">
+                  <i class="fa-brands fa-whatsapp"></i> Pesan Langsung via WhatsApp
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+
+        <!-- SECTION 2: MEAL PLANNER GIZI -->
+        <section id="dash-planner" class="dash-tab-section">
+          <div class="dash-card">
+            <div class="card-header-flex">
+              <div>
+                <h2><i class="fa-solid fa-calendar-week"></i> Perencana Menu Makan Mingguan (AKG)</h2>
+                <p>Menu otomatis bergizi seimbang disesuaikan anggaran dapur & anggota keluarga Anda.</p>
+              </div>
+              <button class="btn-btn-primary" onclick="generateQuickMealPlan()">
+                <i class="fa-solid fa-rotate"></i> Acak Ulang Menu Mingguan
+              </button>
+            </div>
+
+            <!-- Day Tabs -->
+            <div class="week-days-tabs">
+              <button class="day-btn active" onclick="switchDayPlan(this, 'Senin')">Senin</button>
+              <button class="day-btn" onclick="switchDayPlan(this, 'Selasa')">Selasa</button>
+              <button class="day-btn" onclick="switchDayPlan(this, 'Rabu')">Rabu</button>
+              <button class="day-btn" onclick="switchDayPlan(this, 'Kamis')">Kamis</button>
+              <button class="day-btn" onclick="switchDayPlan(this, 'Jumat')">Jumat</button>
+              <button class="day-btn" onclick="switchDayPlan(this, 'Sabtu')">Sabtu</button>
+              <button class="day-btn" onclick="switchDayPlan(this, 'Minggu')">Minggu</button>
+            </div>
+
+            <div class="planner-grid-cards" id="planner-cards-container">
+              <div class="planner-card">
+                <div class="planner-badge">Sarapan</div>
+                <h3>Oatmeal Telur & Buah Segar</h3>
+                <p>Mengandung Karbohidrat Kompleks & Protein Tinggi untuk energi pagi hari.</p>
+                <div class="nutri-pills">
+                  <span>420 kcal</span>
+                  <span>Protein 18g</span>
+                  <span>Biaya ~Rp 8.000</span>
+                </div>
+              </div>
+
+              <div class="planner-card highlight">
+                <div class="planner-badge primary">Makan Siang (Menu Utama Sehat)</div>
+                <h3>Sup Ayam Bayam & Tempe Bacem</h3>
+                <p>Memenuhi 100% AKG Zat Besi & Protein Harian balita dan keluarga.</p>
+                <div class="nutri-pills">
+                  <span>610 kcal</span>
+                  <span>Zat Besi High</span>
+                  <span>Biaya ~Rp 17.000</span>
+                </div>
+              </div>
+
+              <div class="planner-card">
+                <div class="planner-badge">Makan Malam</div>
+                <h3>Ikan Kembung Kukus Bumbu Kuning</h3>
+                <p>Omega-3 dan asam lemak esensial untuk kecerdasan otak & kesehatan jantung.</p>
+                <div class="nutri-pills">
+                  <span>480 kcal</span>
+                  <span>Omega-3 High</span>
+                  <span>Biaya ~Rp 20.000</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- SECTION 3: DAFTAR BELANJA AUTOMATED -->
+        <section id="dash-groceries" class="dash-tab-section">
+          <div class="dash-card">
+            <h2><i class="fa-solid fa-basket-shopping"></i> Kalkulator & Rincian Daftar Belanja</h2>
+            <p>Terhitung otomatis dari kebutuhan menu mingguan tanpa ada bahan sisa (anti pemborosan).</p>
+
+            <div class="grocery-table-container">
+              <table class="grocery-table">
+                <thead>
+                  <tr>
+                    <th>Bahan Makanan</th>
+                    <th>Kategori</th>
+                    <th>Jumlah Porsi</th>
+                    <th>Estimasi Harga</th>
+                    <th>Rekomendasi Mitra UMKM</th>
+                  </tr>
+                </thead>
+                <tbody id="grocery-table-body">
+                  <tr>
+                    <td>Dada Ayam Segar (500g)</td>
+                    <td><span class="badge-cat protein">Protein Utama</span></td>
+                    <td>4 Porsi</td>
+                    <td>Rp 24.000</td>
+                    <td>Warung Bu Titin (250m)</td>
+                  </tr>
+                  <tr>
+                    <td>Bayam Segar (2 Ikat)</td>
+                    <td><span class="badge-cat veg">Sayuran</span></td>
+                    <td>4 Porsi</td>
+                    <td>Rp 4.000</td>
+                    <td>Toko Sayur Pak Slamet (150m)</td>
+                  </tr>
+                  <tr>
+                    <td>Tempe Organik (2 Papan)</td>
+                    <td><span class="badge-cat veg">Nabati</span></td>
+                    <td>6 Porsi</td>
+                    <td>Rp 6.000</td>
+                    <td>Toko Sayur Pak Slamet (150m)</td>
+                  </tr>
+                  <tr>
+                    <td>Ikan Kembung Segar (1/2 kg)</td>
+                    <td><span class="badge-cat protein">Protein Laut</span></td>
+                    <td>4 Porsi</td>
+                    <td>Rp 22.000</td>
+                    <td>Pasar Basah RT 04 (300m)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- SECTION 4: DIREKTORI MITRA UMKM -->
+        <section id="dash-umkm" class="dash-tab-section">
+          <div class="dash-card">
+            <h2><i class="fa-solid fa-store"></i> Direktori Mitra UMKM Kuliner Terdekat</h2>
+            <p>Terhubung langsung dengan warung kelontong, pedagang sayur, dan katering rumahan sekitar lokasi Anda.</p>
+
+            <div class="umkm-grid-cards">
+              <div class="umkm-card">
+                <div class="umkm-img-box"><i class="fa-solid fa-shop"></i></div>
+                <div class="umkm-info">
+                  <h3>Toko Sayur & Sembako Pak Slamet</h3>
+                  <span class="umkm-dist"><i class="fa-solid fa-location-dot"></i> 150 meter dari lokasi Anda</span>
+                  <p>Menyediakan sayuran segar, telur, dan tempe organik harian.</p>
+                  <button class="btn-btn-outline btn-sm btn-block" onclick="orderVendorDirect('Pak Slamet')">
+                    <i class="fa-brands fa-whatsapp"></i> Hubungi WhatsApp
+                  </button>
+                </div>
+              </div>
+
+              <div class="umkm-card">
+                <div class="umkm-img-box primary"><i class="fa-solid fa-utensils"></i></div>
+                <div class="umkm-info">
+                  <h3>Warung Makan & Olahan Bu Titin</h3>
+                  <span class="umkm-dist"><i class="fa-solid fa-location-dot"></i> 250 meter dari lokasi Anda</span>
+                  <p>Spesialis masakan siap saji rumahan kaya gizi tanpa pengawet.</p>
+                  <button class="btn-btn-outline btn-sm btn-block" onclick="orderVendorDirect('Bu Titin')">
+                    <i class="fa-brands fa-whatsapp"></i> Hubungi WhatsApp
+                  </button>
+                </div>
+              </div>
+
+              <div class="umkm-card">
+                <div class="umkm-img-box"><i class="fa-solid fa-bowl-rice"></i></div>
+                <div class="umkm-info">
+                  <h3>Katering Sehat Ibu Ningsih</h3>
+                  <span class="umkm-dist"><i class="fa-solid fa-location-dot"></i> 400 meter dari lokasi Anda</span>
+                  <p>Melayani katering harian porsi keluarga & lansia gizi seimbang.</p>
+                  <button class="btn-btn-outline btn-sm btn-block" onclick="orderVendorDirect('Ibu Ningsih')">
+                    <i class="fa-brands fa-whatsapp"></i> Hubungi WhatsApp
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- SECTION 5: PILAR LAYANAN PANGANKOE -->
+        <section id="dash-pillars" class="dash-tab-section">
+          <div class="dash-card">
+            <h2><i class="fa-solid fa-shield-heart"></i> Pilar Utama Layanan PanganKoe</h2>
+            <p>Komitmen kami untuk kesehatan keluarga Indonesia, efisiensi anggaran dapur, dan pemberdayaan UMKM kuliner lokal.</p>
+
+            <div class="pillars-cards-grid">
+              <div class="pillar-card pillar-1">
+                <div class="pillar-badge">Pilar 1</div>
+                <h3>Nutrisi & Pencegahan Stunting</h3>
+                <p>Mendorong keragaman pangan harian & memastikan kebutuhan gizi mikro balita dan ibu terpenuhi optimal.</p>
+              </div>
+
+              <div class="pillar-card pillar-2">
+                <div class="pillar-badge">Pilar 2</div>
+                <h3>Kehidupan Sehat & Sejahtera</h3>
+                <p>Fitur rekomendasi nutrisi membantu pemantauan AKG harian keluarga dan menjaga kebugaran alami sepanjang hari.</p>
+              </div>
+
+              <div class="pillar-card pillar-3">
+                <div class="pillar-badge">Pilar 3</div>
+                <h3>Pemberdayaan Ekonomi Warung</h3>
+                <p>Memberdayakan pedagang sayur dan warung kecil lokal dengan akses transaksi ramah WhatsApp tanpa potongan komisi.</p>
+              </div>
+
+              <div class="pillar-card pillar-4">
+                <div class="pillar-badge">Pilar 4</div>
+                <h3>Efisiensi & Inovasi Pangan</h3>
+                <p>Menghadirkan inovasi perencanaan pangan berbasis web yang praktis, hemat budget, dan ramah lingkungan tanpa food waste.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+  </div>
+
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="web-toast" class="web-toast hidden">
+    <i class="toast-icon fa-solid fa-circle-info"></i>
+    <span id="web-toast-text">Pesan notifikasi web</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
